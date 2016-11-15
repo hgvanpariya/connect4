@@ -33,6 +33,11 @@ public class Winner {
 	 * @return boolean It will return true if the player is winner.
 	 */
 	public boolean check(int[][] arr, int player, int row, int col) {
+
+		if (arr == null || player == 0 || row < 0 || col < 0 || row >= arr.length || col >= arr[row].length) {
+			return false;
+		}
+
 		CheckColumn checkColumn = new CheckColumn(arr, player, row, col);
 		CheckRow checkRow = new CheckRow(arr, player, row, col);
 		CheckDiaLeftRight checkDiaLeftRight = new CheckDiaLeftRight(arr, player, row, col);
