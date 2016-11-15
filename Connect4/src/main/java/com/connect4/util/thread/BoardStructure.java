@@ -1,8 +1,15 @@
 package com.connect4.util.thread;
 
+/**
+ * This class contains the BoardStructure.
+ * 
+ * @author harikrushna
+ *
+ */
 public class BoardStructure {
+
 	public boolean valid = true;
-	
+
 	int[][] arr;
 	int player = 0;
 

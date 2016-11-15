@@ -5,6 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 
 
+/**
+ * This class is Springboot application.
+ * 
+ * @author harikrushna
+ *
+ */
 @SpringBootApplication
 @PropertySource({"classpath:application.properties"})
 public class Connect4Application {

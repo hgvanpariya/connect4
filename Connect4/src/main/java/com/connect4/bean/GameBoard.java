@@ -5,6 +5,12 @@ import org.springframework.stereotype.Component;
 
 import com.connect4.util.Winner;
 
+/**
+ * This class is designed to store the Game board details.
+ * 
+ * @author Harikrushna
+ *
+ */
 @Component
 public class GameBoard {
 
@@ -55,24 +61,9 @@ public class GameBoard {
 		return check;
 	}
 
-	// public boolean playerWins(int pleayerIndex) {
-	// // check for the given player only
-	// int i = (int) Math.random();
-	// System.out.println("value of i " + i);
-	// return (i == 0);
-	// }
-
-	// public int getRow() {
-	// return row;
-	// }
-
 	public void setRow(int row) {
 		this.row = row;
 	}
-
-	// public int getCol() {
-	// return col;
-	// }
 
 	public void setCol(int col) {
 		this.col = col;

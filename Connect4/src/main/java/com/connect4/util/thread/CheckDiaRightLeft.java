@@ -1,5 +1,12 @@
 package com.connect4.util.thread;
 
+/**
+ * 
+ * This class will check the the Diagonally from right to left for the winner.
+ * 
+ * @author harikrushna
+ *
+ */
 public class CheckDiaRightLeft extends BoardStructure implements Runnable {
 
 	public CheckDiaRightLeft(int[][] arr, int player, int row, int col) {
@@ -16,7 +23,6 @@ public class CheckDiaRightLeft extends BoardStructure implements Runnable {
 		valid = true;
 
 		int count = 0;
-//		System.out.println("PLayer :: " + player);
 
 		while (count < 4 && row < arr.length && col < arr[row].length && col > 0 && row > 0) {
 			if (arr[row++][col--] == player) {

@@ -8,10 +8,30 @@ import com.connect4.util.thread.CheckDiaLeftRight;
 import com.connect4.util.thread.CheckDiaRightLeft;
 import com.connect4.util.thread.CheckRow;
 
+/**
+ * This class will decide on the Winner.
+ * 
+ * @author harikrushna
+ *
+ */
 public class Winner {
 
 	Logger logger = LoggerFactory.getLogger(Winner.class);
 
+	/**
+	 * This method will check the winner. It will return if the current user is
+	 * winner or not.
+	 * 
+	 * @param arr
+	 *            input matrix which contains all the player position in Matrix.
+	 * @param player
+	 *            player id for which we have to check.
+	 * @param row
+	 *            new row index where for move location to the player.
+	 * @param col
+	 *            new column index where for move location to the player.
+	 * @return boolean It will return true if the player is winner.
+	 */
 	public boolean check(int[][] arr, int player, int row, int col) {
 		CheckColumn checkColumn = new CheckColumn(arr, player, row, col);
 		CheckRow checkRow = new CheckRow(arr, player, row, col);
@@ -36,8 +56,9 @@ public class Winner {
 		} catch (InterruptedException e) {
 			logger.error(e.getMessage(), e);
 		}
-		
-		return (checkColumn.isValid() || checkRow.isValid() || checkDiaLeftRight.isValid() || checkDiaRightLeft.isValid()); 
+
+		return (checkColumn.isValid() || checkRow.isValid() || checkDiaLeftRight.isValid()
+				|| checkDiaRightLeft.isValid());
 
 	}
 }

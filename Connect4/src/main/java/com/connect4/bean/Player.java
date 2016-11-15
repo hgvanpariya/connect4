@@ -2,6 +2,12 @@ package com.connect4.bean;
 
 import org.springframework.data.annotation.Id;
 
+/**
+ * This class is designed to add the Player based details.
+ * 
+ * @author harikrushna 
+ *
+ */
 public class Player {
 
 	@Id
@@ -17,9 +23,9 @@ public class Player {
 		this.name = name;
 	}
 
-	 public String getId() {
-	 return id;
-	 }
+	public String getId() {
+		return id;
+	}
 
 	public String getName() {
 		return name;
