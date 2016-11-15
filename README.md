@@ -53,3 +53,9 @@ POST /api/v1/connect4/gameboards/
 ```
 <servername>/api/v1/connect4/gameboards/<gameboardname>/players/<playername>/column/2
 ```
+## Swagger Url
+After hosting in local server API references will be visible at following location :
+
+```
+http://localhost:8080/swagger-ui.html#
+```
