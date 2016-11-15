@@ -23,7 +23,7 @@ import io.swagger.annotations.ApiImplicitParams;
 @Controller
 @RequestMapping("/api/v1/connect4/")
 @Api(value = "gameboard", description = "Gameboard controller")
-@PropertySource({"classpath:application.properties"})
+@PropertySource({ "classpath:application.properties" })
 public class GameBoardController {
 
 	@Autowired
@@ -32,12 +32,18 @@ public class GameBoardController {
 	@Autowired
 	private PlayerRepository playerRepository;
 
-	@RequestMapping(value = "/gameboards/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/gameboards/{name}", method = RequestMethod.GET)
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "name", value = "Name of the gameboard", required = true, dataType = "String") })
-	public @ResponseBody GameBoard getGameboardStatus(@PathVariable("name") int name) {
-		String[] allPlayers = new String[] {};
-		return new GameBoard(5, 5, allPlayers);
+	public @ResponseBody GameBoard getGameboardStatus(@PathVariable("name") String name) {
+		GameBoard gameBoardFindByName = gameBoardRepository.findByName(name);
+		if (gameBoardFindByName == null) {
+			String[] allPlayers = new String[] {};
+			gameBoardFindByName = new GameBoard(5, 5, allPlayers);
+			gameBoardRepository.save(gameBoardFindByName);
+		}
+
+		return gameBoardFindByName;
 	}
 
 	@RequestMapping(value = "/gameboards/{boardName}/players/{playerName}/column/{columnIndex}", method = RequestMethod.GET)
@@ -56,7 +62,7 @@ public class GameBoardController {
 			}
 		}
 		boolean moveForPlayer = gameBoardFindByName.moveForPlayer(playerCount, columnIndex);
-		if(moveForPlayer){
+		if (moveForPlayer) {
 			gameBoardFindByName.setWinner(playerCount);
 		}
 		gameBoardRepository.save(gameBoardFindByName);
