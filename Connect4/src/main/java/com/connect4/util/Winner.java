@@ -37,10 +37,6 @@ public class Winner {
 			logger.error(e.getMessage(), e);
 		}
 		
-//		System.out.println(checkColumn.isValid());
-//		System.out.println(checkRow.isValid());
-//		System.out.println(checkDiaLeftRight.isValid());
-//		System.out.println(checkDiaRightLeft.isValid());
 		return (checkColumn.isValid() || checkRow.isValid() || checkDiaLeftRight.isValid() || checkDiaRightLeft.isValid()); 
 
 	}
